@@ -80,14 +80,8 @@ function install_zsh {
     sh install.sh
 }
 
-function create_wwwdata {
-    cat /etc/passwd | grep www-data
-    sed -i 's/www-data:\/var\/www:\/usr\/sbin\/nologin/www-data:\/var\/www:\/bin\/bash/' /etc/passwd
-}
-
 call_function init_system "正在初始化系统" ${LOG_PATH}
 call_function init_repositories "正在初始化软件源" ${LOG_PATH}
-call_function create_wwwdata "正在创建 www-data 用户" ${LOG_PATH}
 call_function install_basic_softwares "正在安装基础软件" ${LOG_PATH}
 call_function install_php "正在安装 PHP" ${LOG_PATH}
 call_function install_others "正在安装 Mysql / Nginx / Redis / Memcached / Beanstalkd / Sqlite3" ${LOG_PATH}
