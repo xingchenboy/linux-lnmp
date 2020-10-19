@@ -75,6 +75,7 @@ function install_zsh {
     apt-get install -y zsh
     chsh -s /bin/zsh
     cd /root/third
+    wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
     sh install.sh
 }
 
