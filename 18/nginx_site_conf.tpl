@@ -36,7 +36,9 @@ server {
 
     server_tokens off;
 
-    add_header X-Frame-Options SAMEORIGIN;
+    x-content-type-options: nosniff
+    x-frame-options: SAMEORIGIN
+    x-xss-protection: 1; mode=block
 
     client_max_body_size 100m;
 
