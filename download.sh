@@ -14,8 +14,6 @@ nc="\e[0m"
 echo -e "${green}===> 开始下载...${nc}"
 
 mkdir $HOME/third
-cd $HOME/third
-wget -q https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 
 cd $HOME
 wget -q https://github.com/xingchenboy/linux-lnmp/archive/master.tar.gz -O linux-lnmp.tar.gz
@@ -23,6 +21,9 @@ rm -rf linux-lnmp
 tar zxf linux-lnmp.tar.gz
 mv linux-lnmp-master linux-lnmp
 rm -f linux-lnmp.tar.gz
+
+cd $HOME/third
+wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 
 echo -e "${green}===> 下载完毕${nc}"
 echo ""
