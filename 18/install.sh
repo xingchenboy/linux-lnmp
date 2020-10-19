@@ -74,7 +74,7 @@ function install_composer {
 function install_zsh {
     apt-get install -y zsh
     chsh -s /bin/zsh
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh  | bash
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
     echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
     source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

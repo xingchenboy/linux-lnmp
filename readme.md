@@ -3,6 +3,8 @@
 
 ## 简介
 
+基于 laravel-ubuntu-init 基础上修改，https://github.com/summerblue/laravel-ubuntu-init
+
 适用于 Ubuntu 16,18 的 LNMP 安装脚本，并设置了国内镜像加速。
 
 请确保所有命令都以 root 账户执行，如果登录账户不是 root，则需要执行 `sudo -H -s` 切换为 root 账户后再下载安装。
@@ -20,6 +22,7 @@
 * Redis
 * Beanstalkd
 * Memcached
+* zsh
 
 ## 可选软件列表
 
@@ -30,7 +33,7 @@
 ## 安装步骤
 
 ```
-wget -qO- https://raw.githubusercontent.com/summerblue/laravel-ubuntu-init/master/download.sh - | bash
+wget -qO- https://raw.githubusercontent.com/xingchenboy/linux-lnmp/master/download.sh - | bash
 ```
 
 此脚本会将安装脚本下载到当前用户的 Home 目录下的 `laravel-ubuntu-init` 目录并自动执行安装脚本，在安装结束之后会在屏幕上输出 Mysql root 账号的密码，请妥善保存。
