@@ -11,8 +11,8 @@ server {
     #listen 443 ssl http2;
     #server_name {{domains}};
 
-    #ssl_certificate "../certs/example.cer";
-    #ssl_certificate_key "../certs/example.key";
+    #ssl_certificate "/etc/nginx/certs/example.cer";
+    #ssl_certificate_key "/etc/nginx/certs/example.key";
 
     root "{{project_dir}}/current/public";
 
@@ -35,7 +35,7 @@ server {
     fastcgi_hide_header X-Powered-By;
 
     server_tokens off;
-    
+
     add_header X-Frame-Options SAMEORIGIN;
 
     client_max_body_size 100m;
