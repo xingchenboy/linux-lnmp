@@ -36,7 +36,7 @@
 wget -qO- https://raw.githubusercontent.com/xingchenboy/linux-lnmp/master/download.sh - | bash
 ```
 
-此脚本会将安装脚本下载到当前用户的 Home 目录下的 `laravel-ubuntu-init` 目录并自动执行安装脚本，在安装结束之后会在屏幕上输出 Mysql root 账号的密码，请妥善保存。
+此脚本会将安装脚本下载到当前用户的 Home 目录下的 `linux-lnmp` 目录并自动执行安装脚本，在安装结束之后会在屏幕上输出 Mysql root 账号的密码，请妥善保存。
 
 如果当前不是 root 账户则不会自动安装，需要切换到 root 账户后执行 `./18/install.sh`。
 

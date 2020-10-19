@@ -75,13 +75,16 @@ function install_zsh {
     apt-get install -y zsh
     chsh -s /bin/zsh
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-    echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+}
+
+function create_www-data {
+    cat /etc/passwd | grep www-data
+    sed -i 's/www-data:\/var\/www:\/usr\/sbin\/nologin/www-data:\/var\/www:\/bin\/bash/' /etc/passwd
 }
 
 call_function init_system "正在初始化系统" ${LOG_PATH}
 call_function init_repositories "正在初始化软件源" ${LOG_PATH}
+call_function create_www "正在创建 www-data 用户" ${LOG_PATH}
 call_function install_basic_softwares "正在安装基础软件" ${LOG_PATH}
 call_function install_php "正在安装 PHP" ${LOG_PATH}
 call_function install_others "正在安装 Mysql / Nginx / Redis / Memcached / Beanstalkd / Sqlite3" ${LOG_PATH}
@@ -92,5 +95,3 @@ call_function install_zsh "正在安装 zsh" ${LOG_PATH}
 ansi --green --bold -n "安装完毕"
 ansi --green --bold "Mysql root 密码："; ansi -n --bold --bg-yellow --black ${MYSQL_ROOT_PASSWORD}
 ansi --green --bold -n "请手动执行 source ~/.bash_aliases 使 alias 指令生效。"
-ansi --green --bold -n "请手动执行 source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 使 zsh-syntax-highlighting 指令生效。"
-ansi --green --bold -n "请手动执行 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 使 zsh-autosuggestions 指令生效。"
