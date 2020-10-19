@@ -10,8 +10,8 @@ server {
 
     http2_push_preload on;
 
-    ssl_certificate "../certs/example.cer";
-    ssl_certificate_key "../certs/example.key";
+    #ssl_certificate "../certs/example.cer";
+    #ssl_certificate_key "../certs/example.key";
 
     root "{{project_dir}}/current/public";
 
