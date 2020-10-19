@@ -1,14 +1,12 @@
 server {
     listen 80;
     server_name {{domains}};
-    return 301 https://$host$request_uri;
-}
+    #return 301 https://$host$request_uri;
+#}
 
-server {
-    listen 443 ssl http2;
-    server_name {{domains}};
-
-    http2_push_preload on;
+#server {
+    #listen 443 ssl http2;
+    #server_name {{domains}};
 
     #ssl_certificate "../certs/example.cer";
     #ssl_certificate_key "../certs/example.key";
