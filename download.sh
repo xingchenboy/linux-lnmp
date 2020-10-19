@@ -18,6 +18,11 @@ rm -rf linux-lnmp
 tar zxf linux-lnmp.tar.gz
 mv linux-lnmp-master linux-lnmp
 rm -f linux-lnmp.tar.gz
+
+mkdir $HOME/third
+cd $HOME/third
+wget -q https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+
 echo -e "${green}===> 下载完毕${nc}"
 echo ""
 echo -e "${green}安装脚本位于： ${HOME}/linux-lnmp${nc}"
