@@ -74,12 +74,10 @@ function install_composer {
 function install_zsh {
     apt-get install -y zsh
     chsh -s /bin/zsh
-    curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh  | bash
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
     echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-    source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 }
 
 call_function init_system "正在初始化系统" ${LOG_PATH}
@@ -94,3 +92,5 @@ call_function install_zsh "正在安装 zsh" ${LOG_PATH}
 ansi --green --bold -n "安装完毕"
 ansi --green --bold "Mysql root 密码："; ansi -n --bold --bg-yellow --black ${MYSQL_ROOT_PASSWORD}
 ansi --green --bold -n "请手动执行 source ~/.bash_aliases 使 alias 指令生效。"
+ansi --green --bold -n "请手动执行 source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 使 zsh-syntax-highlighting 指令生效。"
+ansi --green --bold -n "请手动执行 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 使 zsh-autosuggestions 指令生效。"
