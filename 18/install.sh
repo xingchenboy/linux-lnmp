@@ -44,7 +44,7 @@ function init_repositories {
 }
 
 function install_basic_softwares {
-    apt-get install -y curl build-essential unzip supervisor
+    apt-get install -y curl git build-essential unzip supervisor
 }
 
 function install_node_yarn {
