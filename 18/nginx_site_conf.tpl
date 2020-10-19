@@ -1,7 +1,10 @@
 server {
     listen 80;
     server_name {{domains}};
-    #return 301 https://$host$request_uri;
+
+    #if ($scheme = http) {
+        #return 301 https://$host$request_uri;
+    #}
 #}
 
 #server {
@@ -28,6 +31,12 @@ server {
     error_log /var/log/nginx/{{project}}-error.log error;
 
     sendfile off;
+
+    fastcgi_hide_header X-Powered-By;
+
+    server_tokens off;
+    
+    add_header X-Frame-Options SAMEORIGIN;
 
     client_max_body_size 100m;
 
