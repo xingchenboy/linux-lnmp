@@ -1,7 +1,19 @@
 server {
     listen 80;
     server_name {{domains}};
-    root "{{project_dir}}/public";
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name {{domains}};
+
+    http2_push_preload on;
+
+    ssl_certificate "../certs/example.cer";
+    ssl_certificate_key "../certs/example.key";
+
+    root "{{project_dir}}/current/public";
 
     index index.html index.htm index.php;
 

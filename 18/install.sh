@@ -74,7 +74,6 @@ function install_composer {
 function install_zsh {
     apt-get install -y zsh
     chsh -s /bin/zsh
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
 function create_wwwdata {
