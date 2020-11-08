@@ -34,8 +34,6 @@ server {
 
     fastcgi_hide_header X-Powered-By;
 
-    server_tokens off;
-
     x-content-type-options: nosniff
     x-frame-options: SAMEORIGIN
     x-xss-protection: 1; mode=block

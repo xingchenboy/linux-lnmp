@@ -37,8 +37,6 @@ cat ${CURRENT_DIR}/nginx_site_conf.tpl |
 
 ln -sf /etc/nginx/sites-available/${project}.conf /etc/nginx/sites-enabled/${project}.conf
 
-mkdir /etc/nginx/certs
-
 ansi -n --bold --green "配置文件创建成功";
 
 mkdir -p ${project_dir} && chown -R ${WWW_USER}.${WWW_USER_GROUP} ${project_dir}
