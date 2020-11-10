@@ -34,10 +34,6 @@ server {
 
     fastcgi_hide_header X-Powered-By;
 
-    x-content-type-options: nosniff
-    x-frame-options: SAMEORIGIN
-    x-xss-protection: 1; mode=block
-
     client_max_body_size 100m;
 
     location ~ \.php$ {
